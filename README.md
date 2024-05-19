@@ -6,16 +6,16 @@ S2G6
 Dharini Panchal <1191207>
 
 # Project Name
-EthiCore
+PureAttire
 
 # Project Description
-EthiCore is an E-commerce Android Application for modest style, elegance and clothings. EthiCore includes wide variety of clothings for every occasion. With the help of advaced filters, you may quickly select clothes that fit to your modesty standards. Enjoy secure payment method, rapid shipping and a broad range of sizes and sustainable solutions. 
+PureAttire is an Android e-commerce application offering modest, stylist and elegant clothings. PureAttire includes a wide variety of clothing for every occasion. With the help of advanced filters, you can quickly select clothes that meet your modesty standards. Enjoy secure payment method, rapid shipping and a broad range of sizes and sustainable solutions. 
 
 # Project Data Source
 Firebase
 
 # List of App Features
-1.
+1. 
 2.
 3.
 4.
