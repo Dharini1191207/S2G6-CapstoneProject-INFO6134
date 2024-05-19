@@ -12,6 +12,7 @@ EthiCore
 EthiCore is an E-commerce Android Application for modest style, elegance and clothings. EthiCore includes wide variety of clothings for every occasion. With the help of advaced filters, you may quickly select clothes that fit to your modesty standards. Enjoy secure payment method, rapid shipping and a broad range of sizes and sustainable solutions. 
 
 # Project Data Source
+Firebase
 
 # List of App Features
 1.
