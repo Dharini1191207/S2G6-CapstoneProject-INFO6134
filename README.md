@@ -15,10 +15,10 @@ PureAttire is an Android e-commerce application offering modest, stylist and ele
 Firebase
 
 # List of App Features
-1. 
-2.
-3.
-4.
+1. Create Account / Sign In 
+2. Forget Password: Recover Forgotten Password
+3. Login through Google: Sign in with Google Account
+4. User Account: Manage User's Account Details - Update, Delete, and Logout
 5.
 6.
 7.
