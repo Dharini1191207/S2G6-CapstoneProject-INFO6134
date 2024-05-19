@@ -4,6 +4,7 @@ S2G6
 
 # Group Members
 Dharini Panchal <1191207>
+Alvira Sipay Pathan <1194645>
 
 # Project Name
 PureAttire
@@ -23,10 +24,10 @@ Firebase
 6.
 7.
 8.
-9.
-10.
-11.
-12.
+9. Products: Browse available items
+10. search for specific item
+11. ⁠Add to Cart: Add items to cart
+12. Add/reduce quantity: Adjust item quantity
 13.
 14.
 15.
