@@ -16,6 +16,7 @@ PureAttire is an Android e-commerce application offering modest, stylist and ele
 
 # Project Data Source
 Multi-user input. The data comes from the app’s user and other registered users. The database we will be using is Firebase Cloud and database helper file for remote data.
+Link of firestore : https://console.firebase.google.com/project/pureattire-capstoneproject/firestore
 
 # List of App Features
 1. User can Create Account / Sign In 
