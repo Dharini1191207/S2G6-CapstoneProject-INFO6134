@@ -26,10 +26,10 @@ Multi-user input. The data comes from the app’s user and other registered user
 6. User can view Color, size, description, price: Product details overview.
 7. User can Share: Share product link.
 8. User can Add to fav: Add to favorites.
-9. Products: Browse available items
-10. search for specific item
-11. ⁠Add to Cart: Add items to cart
-12. Add/reduce quantity: Adjust item quantity
+9. User can browse available product items
+10. User can search for specific product
+11. ⁠User can add product to cart
+12. User can adjust item quantity in the cart
 13. User can delete all items from cart: Empty the cart.
 14. User can calculate total amount: View cart total.
 15. User can add address, contact details, save button: Enter and save address details.
