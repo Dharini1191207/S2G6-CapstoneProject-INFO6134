@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "150772294068",
+    "project_id": "pureattire-capstoneproject",
+    "storage_bucket": "pureattire-capstoneproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150772294068:android:d8b3e7a099227b07fed2e1",
+        "android_client_info": {
+          "package_name": "com.example.pureattire_capstoneproject_info6134"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSq--UuIV9NFLBosE7KYV3gmJ8eXFF5w8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
