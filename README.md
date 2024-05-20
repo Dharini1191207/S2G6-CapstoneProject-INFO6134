@@ -22,10 +22,10 @@ Multi-user input. The data comes from the app’s user and other registered user
 2. Forget Password: Recover Forgotten Password
 3. Login through Google: Sign in with Google Account
 4. User Account: Manage User's Account Details - Update, Delete, and Logout
-5. Category: View product categories.
-6. Color, size, description, price: Product details overview.
-7. Share: Share product link.
-8. Add to fav: Add to favorites.
+5. User can view Category: View product categories.
+6. User can view Color, size, description, price: Product details overview.
+7. User can Share: Share product link.
+8. User can Add to fav: Add to favorites.
 9. Products: Browse available items
 10. search for specific item
 11. ⁠Add to Cart: Add items to cart
