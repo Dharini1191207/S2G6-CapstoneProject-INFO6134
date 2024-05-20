@@ -3,9 +3,10 @@
 S2G6
 
 # Group Members
-Dharini Panchal <1191207>
-Alvira Sipay Pathan <1194645>
-Muhammad Mustujab Uddin <1206674>
+- Dharini Panchal <1191207>
+- Alvira Sipay Pathan <1194645>
+- Muhammad Mustujab Uddin <1206674>
+- Muhammad Afnan Siddiqui <1181650>
 
 # Project Name
 PureAttire
@@ -21,10 +22,10 @@ Firebase
 2. Forget Password: Recover Forgotten Password
 3. Login through Google: Sign in with Google Account
 4. User Account: Manage User's Account Details - Update, Delete, and Logout
-5.
-6.
-7.
-8.
+5. Category: View product categories.
+6. Color, size, description, price: Product details overview.
+7. Share: Share product link.
+8. Add to fav: Add to favorites.
 9. Products: Browse available items
 10. search for specific item
 11. ⁠Add to Cart: Add items to cart
