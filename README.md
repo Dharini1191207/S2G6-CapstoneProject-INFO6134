@@ -5,6 +5,7 @@ S2G6
 # Group Members
 Dharini Panchal <1191207>
 Alvira Sipay Pathan <1194645>
+Muhammad Mustujab Uddin <1206674>
 
 # Project Name
 PureAttire
@@ -28,7 +29,7 @@ Firebase
 10. search for specific item
 11. ⁠Add to Cart: Add items to cart
 12. Add/reduce quantity: Adjust item quantity
-13.
-14.
-15.
-16. 
+13. Delete all items from cart: Empty the cart.
+14. Total amount: View cart total.
+15. Add address, contact details, save button: Enter and save address details.
+16. Order confirmation: Confirm and place order.
