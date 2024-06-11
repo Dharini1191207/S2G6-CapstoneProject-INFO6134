@@ -13,6 +13,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.pureattire_capstoneproject_info6134.R
 import com.example.pureattire_capstoneproject_info6134.activities.ShoppingActivity
 import com.example.pureattire_capstoneproject_info6134.databinding.FragmentLoginBinding
+import com.example.pureattire_capstoneproject_info6134.dialog.setupBottomSheetDialog
+//import com.example.pureattire_capstoneproject_info6134.databinding.ResetPassowrdDialogBinding
+//import com.example.pureattire_capstoneproject_info6134.dialog.setupBottomSheetDialog
 import com.example.pureattire_capstoneproject_info6134.util.Resource
 import com.example.pureattire_capstoneproject_info6134.viewmodel.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -48,6 +51,28 @@ class LoginFragment:Fragment(R.layout.fragment_login) {
             }
         }
 
+        binding.tvForgotPasswordLogin.setOnClickListener {
+            setupBottomSheetDialog { email ->
+                viewModel.resetPassword(email)
+            }
+        }
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.resetPassword.collect{
+                when (it) {
+                    is Resource.Loading -> {
+                    }
+                    is Resource.Success -> {
+                        Snackbar.make(requireView(),"Reset link was sent to your email",Snackbar.LENGTH_LONG).show()
+                    }
+                    is Resource.Error -> {
+                        Snackbar.make(requireView(),"Error: ${it.message}",Snackbar.LENGTH_LONG).show()
+                    }
+                    else -> Unit
+
+                }
+            }
+        }
 
         lifecycleScope.launchWhenStarted {
             viewModel.login.collect {

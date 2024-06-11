@@ -2,7 +2,6 @@ package com.example.pureattire_capstoneproject_info6134.viewmodel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-//import com.example.pureattire_capstoneproject_info6134.fragments.LoginRegister.TAG
 import com.example.pureattire_capstoneproject_info6134.util.Resource
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -40,6 +39,23 @@ class LoginViewModel @Inject constructor(
         }
     }
 
+    fun resetPassword(email: String) {
+        viewModelScope.launch {
+            _resetPassword.emit(Resource.Loading())
+        }
 
+        firebaseAuth
+            .sendPasswordResetEmail(email)
+            .addOnSuccessListener {
+                viewModelScope.launch {
+                    _resetPassword.emit(Resource.Success(email))
+                }
+            }
+            .addOnFailureListener {
+                viewModelScope.launch {
+                    _resetPassword.emit(Resource.Error(it.message.toString()))
+                }
+            }
+    }
 
 }
