@@ -62,7 +62,7 @@ class RegisterFragment : Fragment() {
                         binding.buttonRegisterRegister.startAnimation()
                     }
                     is Resource.Success -> {
-                        Log.d("test",it.data.toString())
+                        Log.e(TAG,it.message.toString())
                         binding.buttonRegisterRegister.revertAnimation()
                         findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
                     }

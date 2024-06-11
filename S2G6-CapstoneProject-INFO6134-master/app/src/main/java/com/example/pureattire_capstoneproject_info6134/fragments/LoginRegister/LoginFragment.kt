@@ -14,13 +14,15 @@ import com.example.pureattire_capstoneproject_info6134.R
 import com.example.pureattire_capstoneproject_info6134.activities.ShoppingActivity
 import com.example.pureattire_capstoneproject_info6134.databinding.FragmentLoginBinding
 import com.example.pureattire_capstoneproject_info6134.dialog.setupBottomSheetDialog
-//import com.example.pureattire_capstoneproject_info6134.databinding.ResetPassowrdDialogBinding
-//import com.example.pureattire_capstoneproject_info6134.dialog.setupBottomSheetDialog
+import com.example.pureattire_capstoneproject_info6134.util.RegisterValidation
+
 import com.example.pureattire_capstoneproject_info6134.util.Resource
 import com.example.pureattire_capstoneproject_info6134.viewmodel.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class LoginFragment:Fragment(R.layout.fragment_login) {
@@ -97,5 +99,26 @@ class LoginFragment:Fragment(R.layout.fragment_login) {
                 }
             }
         }
+        lifecycleScope.launchWhenStarted {
+            viewModel.validation.collect { validation ->
+                if (validation.email is RegisterValidation.Failed){
+                    withContext(Dispatchers.Main){
+                        binding.edEmailLogin.apply {
+                            requestFocus()
+                            error = validation.email.message
+                        }
+                    }
+                }
+
+                else if (validation.password is RegisterValidation.Failed){
+                    withContext(Dispatchers.Main){
+                        binding.edPasswordLogin.apply {
+                            requestFocus()
+                            error = validation.password.message
+                        }
+                    }
+                } }
+        }
+
     }
 }
