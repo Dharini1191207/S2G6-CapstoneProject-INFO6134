@@ -17,12 +17,13 @@ import com.example.pureattire_capstoneproject_info6134.util.Resource
 import com.example.pureattire_capstoneproject_info6134.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.withContext
 
-private val TAG ="RegisterFragment"
-
+private val TAG = "RegisterFragment"
 @AndroidEntryPoint
-class RegisterFragment : Fragment(){
+class RegisterFragment : Fragment() {
+
     private lateinit var binding: FragmentRegisterBinding
     private val viewModel by viewModels<RegisterViewModel>()
 
@@ -37,9 +38,11 @@ class RegisterFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.tvDoYouHaveAccount.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
+
         binding.apply {
             buttonRegisterRegister.setOnClickListener {
                 val user = User(
@@ -51,6 +54,7 @@ class RegisterFragment : Fragment(){
                 viewModel.createAccountWithEmailAndPassword(user, password)
             }
         }
+
         lifecycleScope.launchWhenStarted {
             viewModel.register.collect {
                 when (it) {
@@ -58,6 +62,7 @@ class RegisterFragment : Fragment(){
                         binding.buttonRegisterRegister.startAnimation()
                     }
                     is Resource.Success -> {
+                        Log.d("test",it.data.toString())
                         binding.buttonRegisterRegister.revertAnimation()
                         findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
                     }
@@ -69,6 +74,7 @@ class RegisterFragment : Fragment(){
                 }
             }
         }
+
         lifecycleScope.launchWhenStarted {
             viewModel.validation.collect { validation ->
                 if (validation.email is RegisterValidation.Failed){

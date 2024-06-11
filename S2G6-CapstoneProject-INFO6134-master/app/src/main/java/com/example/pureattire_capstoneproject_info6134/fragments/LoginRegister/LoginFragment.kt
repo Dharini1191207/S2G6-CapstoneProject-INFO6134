@@ -1,18 +1,25 @@
 package com.example.pureattire_capstoneproject_info6134.fragments.LoginRegister
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.pureattire_capstoneproject_info6134.R
+import com.example.pureattire_capstoneproject_info6134.activities.ShoppingActivity
 import com.example.pureattire_capstoneproject_info6134.databinding.FragmentLoginBinding
+import com.example.pureattire_capstoneproject_info6134.util.Resource
 import com.example.pureattire_capstoneproject_info6134.viewmodel.LoginViewModel
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 
-
+@AndroidEntryPoint
 class LoginFragment:Fragment(R.layout.fragment_login) {
     private lateinit var binding: FragmentLoginBinding
     private val viewModel by viewModels<LoginViewModel>()
@@ -25,12 +32,45 @@ class LoginFragment:Fragment(R.layout.fragment_login) {
         binding = FragmentLoginBinding.inflate(inflater)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.tvDontHaveAccount.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+
+        binding.apply {
+            buttonLoginLogin.setOnClickListener {
+                val email = edEmailLogin.text.toString().trim()
+                val password = edPasswordLogin.text.toString()
+                viewModel.login(email, password)
+            }
+        }
+
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.login.collect {
+                when (it) {
+                    is Resource.Loading -> {
+                        //Toast.makeText(requireActivity(), it.message , Toast.LENGTH_LONG).show()
+                        binding.buttonLoginLogin.startAnimation()
+                    }
+                    is Resource.Success -> {
+                        binding.buttonLoginLogin.revertAnimation()
+                        Intent(requireActivity(), ShoppingActivity::class.java).also { intent ->
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                            startActivity(intent)
+                        }
+                    }
+                    is Resource.Error -> {
+                        Toast.makeText(requireActivity(), it.message , Toast.LENGTH_LONG).show()
+                        binding.buttonLoginLogin.revertAnimation()
+                    }
+                    else -> Unit
+
+                }
+            }
+        }
     }
 }
-
