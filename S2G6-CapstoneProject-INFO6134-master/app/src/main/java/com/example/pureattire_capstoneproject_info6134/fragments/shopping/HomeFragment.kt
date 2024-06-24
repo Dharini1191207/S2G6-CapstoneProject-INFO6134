@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.pureattire_capstoneproject_info6134.R
 import com.example.pureattire_capstoneproject_info6134.adapters.HomeViewpagerAdapter
-import com.example.pureattire_capstoneproject_info6134.databinding.FragmentAccountOptionsBinding
 import com.example.pureattire_capstoneproject_info6134.databinding.FragmentHomeBinding
 import com.example.pureattire_capstoneproject_info6134.fragments.categories.AbayaFragment
 import com.example.pureattire_capstoneproject_info6134.fragments.categories.BishtFragment

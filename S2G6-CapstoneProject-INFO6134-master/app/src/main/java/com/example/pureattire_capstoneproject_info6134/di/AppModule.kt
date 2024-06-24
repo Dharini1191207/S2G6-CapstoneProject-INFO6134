@@ -1,5 +1,6 @@
 package com.example.pureattire_capstoneproject_info6134.di
 
+import com.example.pureattire_capstoneproject_info6134.firebase.FirebaseCommon
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -23,6 +24,11 @@ object AppModule {
     @Singleton
     fun provideFirebaseFirestoreDatabase() = Firebase.firestore
 
-
+    @Provides
+    @Singleton
+    fun provideFirebaseCommon(
+        firebaseAuth: FirebaseAuth,
+        firestore: FirebaseFirestore
+    ) = FirebaseCommon(firestore,firebaseAuth)
 
 }
