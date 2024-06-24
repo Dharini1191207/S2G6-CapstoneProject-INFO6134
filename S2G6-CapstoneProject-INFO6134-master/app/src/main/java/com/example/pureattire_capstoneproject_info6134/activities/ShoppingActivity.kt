@@ -10,11 +10,11 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.pureattire_capstoneproject_info6134.R
 import com.example.pureattire_capstoneproject_info6134.databinding.ActivityShoppingBinding
 import com.example.pureattire_capstoneproject_info6134.util.Resource
-
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
+@AndroidEntryPoint
 class ShoppingActivity : AppCompatActivity() {
     val binding by lazy {
         ActivityShoppingBinding.inflate(layoutInflater)
