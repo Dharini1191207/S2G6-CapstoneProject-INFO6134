@@ -44,7 +44,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
             viewModel.productsPrice.collectLatest { price ->
                 price?.let {
                     totalPrice = it
-                    binding.tvTotalPrice.text = "$ $price"
+                    //binding.tvTotalPrice.text = "$ $price"
                 }
             }
         }
@@ -57,11 +57,11 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         }
 
         cartAdapter.onPlusClick = {
-            viewModel.changeQuantity(it, FirebaseCommon.QuantityChanging.INCREASE)
+            //viewModel.changeQuantity(it, FirebaseCommon.QuantityChanging.INCREASE)
         }
 
         cartAdapter.onMinusClick = {
-            viewModel.changeQuantity(it, FirebaseCommon.QuantityChanging.DECREASE)
+            //viewModel.changeQuantity(it, FirebaseCommon.QuantityChanging.DECREASE)
         }
 
 //        binding.buttonCheckout.setOnClickListener {
@@ -119,7 +119,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
     private fun showOtherViews() {
         binding.apply {
             rvCart.visibility = View.VISIBLE
-            totalBoxContainer.visibility = View.VISIBLE
+            //totalBoxContainer.visibility = View.VISIBLE
             buttonCheckout.visibility = View.VISIBLE
         }
     }
@@ -127,7 +127,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
     private fun hideOtherViews() {
         binding.apply {
             rvCart.visibility = View.GONE
-            totalBoxContainer.visibility = View.GONE
+            //totalBoxContainer.visibility = View.GONE
             buttonCheckout.visibility = View.GONE
         }
     }

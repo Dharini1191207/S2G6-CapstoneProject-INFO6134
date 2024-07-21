@@ -89,23 +89,23 @@ class CartViewModel @Inject constructor(
          * index could be equal to -1 if the function [getCartProducts] delays which will also delay the result we expect to be inside the [_cartProducts]
          * and to prevent the app from crashing we make a check
          */
-        if (index != null && index != -1) {
-            val documentId = cartProductDocuments[index].id
-            when (quantityChanging) {
-                FirebaseCommon.QuantityChanging.INCREASE -> {
-                    viewModelScope.launch { _cartProducts.emit(Resource.Loading()) }
-                    increaseQuantity(documentId)
-                }
-                FirebaseCommon.QuantityChanging.DECREASE -> {
-                    if (cartProduct.quantity == 1) {
-                        viewModelScope.launch { _deleteDialog.emit(cartProduct) }
-                        return
-                    }
-                    viewModelScope.launch { _cartProducts.emit(Resource.Loading()) }
-                    decreaseQuantity(documentId)
-                }
-            }
-        }
+//        if (index != null && index != -1) {
+//            val documentId = cartProductDocuments[index].id
+//            when (quantityChanging) {
+//                FirebaseCommon.QuantityChanging.INCREASE -> {
+//                    viewModelScope.launch { _cartProducts.emit(Resource.Loading()) }
+//                    increaseQuantity(documentId)
+//                }
+//                FirebaseCommon.QuantityChanging.DECREASE -> {
+//                    if (cartProduct.quantity == 1) {
+//                        viewModelScope.launch { _deleteDialog.emit(cartProduct) }
+//                        return
+//                    }
+//                    viewModelScope.launch { _cartProducts.emit(Resource.Loading()) }
+//                    decreaseQuantity(documentId)
+//                }
+//            }
+//        }
     }
 
     private fun decreaseQuantity(documentId: String) {
