@@ -39,21 +39,23 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
 
         setupCartRv()
 
-        var totalPrice = 0f
-        lifecycleScope.launchWhenStarted {
-            viewModel.productsPrice.collectLatest { price ->
-                price?.let {
-                    totalPrice = it
-                    //binding.tvTotalPrice.text = "$ $price"
-                }
-            }
-        }
+
 
         cartAdapter.onProductClick = {
             val b = Bundle().apply {
                 putParcelable("product", it.product)
             }
             findNavController().navigate(R.id.action_cartFragment_to_productDetailsFragment, b)
+        }
+        
+        var totalPrice = 0f
+        lifecycleScope.launchWhenStarted {
+            viewModel.productsPrice.collectLatest { price ->
+                price?.let {
+                    totalPrice = it
+                    binding.tvTotalPrice.text = "$ $price"
+                }
+            }
         }
 
         cartAdapter.onPlusClick = {
