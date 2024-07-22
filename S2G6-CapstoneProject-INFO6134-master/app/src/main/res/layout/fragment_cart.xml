@@ -75,12 +75,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.68" />
+                app:layout_constraintGuide_percent="0.65" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCart"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="383dp"
+                android:layout_height="397dp"
                 android:layout_marginTop="5dp"
                 app:layout_constraintBottom_toTopOf="@id/bottomGuideLine"
                 app:layout_constraintEnd_toEndOf="@id/rightGuideLine"
@@ -104,9 +104,10 @@
                 android:id="@+id/totalBoxContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="52dp"
                 android:background="@drawable/total_box_background"
                 app:layout_constraintEnd_toEndOf="@id/rightGuideLine"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@id/leftGuideLine"
                 app:layout_constraintTop_toBottomOf="@id/bottomGuideLine">
 
