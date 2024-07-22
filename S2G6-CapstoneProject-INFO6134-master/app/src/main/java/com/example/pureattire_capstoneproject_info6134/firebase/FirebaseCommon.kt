@@ -55,6 +55,27 @@ class FirebaseCommon(
             onResult(null, it)
         }
     }
+    fun clearCart(onResult: (Boolean, Exception?) -> Unit) {
+        cartCollection.get()
+            .addOnSuccessListener { documents ->
+                if (documents.isEmpty) {
+                    onResult(true, null) // No items to delete
+                    return@addOnSuccessListener
+                }
+                firestore.runBatch { batch ->
+                    for (document in documents) {
+                        batch.delete(document.reference)
+                    }
+                }.addOnSuccessListener {
+                    onResult(true, null)
+                }.addOnFailureListener { exception ->
+                    onResult(false, exception)
+                }
+            }
+            .addOnFailureListener { exception ->
+                onResult(false, exception)
+            }
+    }
 
     enum class QuantityChanging {
         INCREASE,DECREASE

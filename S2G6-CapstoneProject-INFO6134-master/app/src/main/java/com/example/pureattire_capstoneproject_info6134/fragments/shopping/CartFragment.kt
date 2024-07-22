@@ -117,12 +117,16 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
                 }
             }
         }
+        binding.btnClearCart.setOnClickListener {
+            clearCart()
+        }
+
     }
 
     private fun showOtherViews() {
         binding.apply {
             rvCart.visibility = View.VISIBLE
-            //totalBoxContainer.visibility = View.VISIBLE
+            totalBoxContainer.visibility = View.VISIBLE
             buttonCheckout.visibility = View.VISIBLE
         }
     }
@@ -132,6 +136,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
             rvCart.visibility = View.GONE
             totalBoxContainer.visibility = View.GONE
             buttonCheckout.visibility = View.GONE
+            btnClearCart.visibility = View.GONE
         }
     }
 
@@ -153,5 +158,19 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
             adapter = cartAdapter
             addItemDecoration(VerticalItemDecoration())
         }
+    }
+    private fun clearCart() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Clear Cart")
+            .setMessage("Are you sure you want to clear all items from the cart?")
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setPositiveButton("Yes") { dialog, _ ->
+                viewModel.clearCart()
+                dialog.dismiss()
+            }
+            .create()
+            .show()
     }
 }

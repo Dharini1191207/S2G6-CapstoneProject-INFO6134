@@ -49,6 +49,17 @@ class CartViewModel @Inject constructor(
                 .document(documentId).delete()
         }
     }
+    fun clearCart() {
+        viewModelScope.launch {
+            firebaseCommon.clearCart { success, exception ->
+                if (success) {
+
+                } else {
+
+                }
+            }
+        }
+    }
 
 
     private fun calculatePrice(data: List<CartProduct>): Float {
