@@ -47,7 +47,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
             }
             findNavController().navigate(R.id.action_cartFragment_to_productDetailsFragment, b)
         }
-        
+
         var totalPrice = 0f
         lifecycleScope.launchWhenStarted {
             viewModel.productsPrice.collectLatest { price ->
@@ -58,12 +58,13 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
             }
         }
 
+
         cartAdapter.onPlusClick = {
-            //viewModel.changeQuantity(it, FirebaseCommon.QuantityChanging.INCREASE)
+            viewModel.changeQuantity(it, FirebaseCommon.QuantityChanging.INCREASE)
         }
 
         cartAdapter.onMinusClick = {
-            //viewModel.changeQuantity(it, FirebaseCommon.QuantityChanging.DECREASE)
+            viewModel.changeQuantity(it, FirebaseCommon.QuantityChanging.DECREASE)
         }
 
 //        binding.buttonCheckout.setOnClickListener {
@@ -129,7 +130,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
     private fun hideOtherViews() {
         binding.apply {
             rvCart.visibility = View.GONE
-            //totalBoxContainer.visibility = View.GONE
+            totalBoxContainer.visibility = View.GONE
             buttonCheckout.visibility = View.GONE
         }
     }
