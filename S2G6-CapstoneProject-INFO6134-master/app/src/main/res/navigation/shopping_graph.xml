@@ -73,4 +73,8 @@
             android:name="products"
             app:argType="com.example.pureattire_capstoneproject_info6134.data.CartProduct[]" />
     </fragment>
+    <fragment
+        android:id="@+id/userAccountFragment"
+        android:name="com.example.pureattire_capstoneproject_info6134.fragments.settings.UserAccountFragment"
+        android:label="UserAccountFragment" />
 </navigation>

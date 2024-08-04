@@ -30,27 +30,12 @@ class MainCategoryViewModel @Inject constructor(
     private val pagingInfo = PagingInfo()
 
     init {
-        fetchSpecialProducts()
+        //fetchSpecialProducts()
         fetchBestDeals()
         fetchBestProducts()
     }
 
-    fun fetchSpecialProducts() {
-        viewModelScope.launch {
-            _specialProducts.emit(Resource.Loading())
-        }
-        firestore.collection("Products")
-            .whereEqualTo("category", "Special Products").get().addOnSuccessListener { result ->
-                val specialProductsList = result.toObjects(Product::class.java)
-                viewModelScope.launch {
-                    _specialProducts.emit(Resource.Success(specialProductsList))
-                }
-            }.addOnFailureListener {
-                viewModelScope.launch {
-                    _specialProducts.emit(Resource.Error(it.message.toString()))
-                }
-            }
-    }
+
     fun fetchBestDeals() {
         viewModelScope.launch {
             _bestDealsProducts.emit(Resource.Loading())
