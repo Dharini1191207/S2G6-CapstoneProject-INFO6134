@@ -77,4 +77,20 @@
         android:id="@+id/userAccountFragment"
         android:name="com.example.pureattire_capstoneproject_info6134.fragments.settings.UserAccountFragment"
         android:label="UserAccountFragment" />
+    <fragment
+        android:id="@+id/orderDetailFragment"
+        android:name="com.example.pureattire_capstoneproject_info6134.data.order.OrderDetailFragment"
+        android:label="OrderDetailFragment" >
+        <argument
+            android:name="order"
+            app:argType="com.example.pureattire_capstoneproject_info6134.data.order.Order" />
+    </fragment>
+    <fragment
+        android:id="@+id/allOrdersFragment"
+        android:name="com.example.pureattire_capstoneproject_info6134.fragments.settings.AllOrdersFragment"
+        android:label="AllOrdersFragment" >
+        <action
+            android:id="@+id/action_allOrdersFragment_to_orderDetailFragment"
+            app:destination="@id/orderDetailFragment" />
+    </fragment>
 </navigation>
