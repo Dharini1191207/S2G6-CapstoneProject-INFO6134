@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pureattire_capstoneproject_info6134.R
 import com.example.pureattire_capstoneproject_info6134.adapter.BestDealsAdapter
 import com.example.pureattire_capstoneproject_info6134.adapter.BestProductsAdapter
-import com.example.pureattire_capstoneproject_info6134.adapter.SpecialProductsAdapter
 import com.example.pureattire_capstoneproject_info6134.databinding.FragmentMainCategoryBinding
 import com.example.pureattire_capstoneproject_info6134.util.Resource
 import com.example.pureattire_capstoneproject_info6134.util.showBottomNavigationView
